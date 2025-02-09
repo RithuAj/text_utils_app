@@ -1,0 +1,20 @@
+.navbar {
+  background-color: #E0B0FF;
+}
+.navbar-brand{
+  color: darkmagenta;
+  text-emphasis-color:darkmagenta;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+.nav-link{
+  color: whitesmoke;
+}
+.nav-link.active{
+  color: whitesmoke;
+}
+
+/* .nav-pills .nav-link.active{
+  color:whitesmoke;
+  background-color: #A47DAB;
+} */
