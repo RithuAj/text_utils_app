@@ -7,6 +7,11 @@
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
 
+.form-check-input:checked {
+  background-color: darkmagenta;
+  border-color: black;
+}
+
 .nav-link{
   color: whitesmoke;
 }
