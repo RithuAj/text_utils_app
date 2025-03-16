@@ -18,6 +18,9 @@
 .nav-link.active{
   color: whitesmoke;
 }
+.nav-item.active{
+  background-color:darkorchid;
+}
 
 /* .nav-pills .nav-link.active{
   color:whitesmoke;

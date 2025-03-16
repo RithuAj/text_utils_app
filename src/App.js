@@ -4,7 +4,10 @@ import AboutUs from './components/AboutUs';
 import Alert from './components/Alert';
 import Navbar from './components/navbar';
 import TextForm from './components/TextForm';
+import Home from './components/Home';
 import React,{useState} from 'react';
+import {  Routes, Route, BrowserRouter as Router, } from "react-router-dom";
+
 
 function App() {
 
@@ -36,14 +39,23 @@ function App() {
   }
 
   return (
-    <>
+   
+    <Router>
     <Navbar mode={mode} toggleMode={toggleMode} ></Navbar>
     <Alert alert={alert}></Alert>
     <div className="container my-3">
-      <TextForm defaultContent={"Play with the Text Here :)"} mode={mode} showAlert={showAlert}></TextForm>
+   
+      <Routes>
+          <Route path ="/" element={<Home />} />
+          <Route path="/textUtils" element={<TextForm />}/>
+          <Route path="/aboutUs" element={<AboutUs/>} />
+          {/* <Route path="*" element={<NoPage />} /> */}
+      </Routes>
+  
+      {/* <TextForm defaultContent={"Play with the Text Here :)"} mode={mode} showAlert={showAlert}></TextForm> */}
       {/* <AboutUs></AboutUs> */}
     </div>
-    </>
+    </Router>
   );
 }
 

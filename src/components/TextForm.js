@@ -18,7 +18,6 @@ export default function TextForm(props) {
  }
 
  const handleClearText=()=>{
-   let newText=text.toLowerCase();
     setText("");
     props.showAlert("Text cleared","success");
 
@@ -44,7 +43,9 @@ export default function TextForm(props) {
 
     </div>
     <h2 style={{color:props.mode==='dark'?'white':'black'}}>Text Summary</h2>
-    <p style={{color:props.mode==='dark'?'white':'black'}}>{text.split(" ").length} words and {text.length} characters</p>
+    <p style={{color:props.mode==='dark'?'white':'black'}}>{text.split(/\s+/).filter((element)=>{
+      return element.length!==0
+    }).length} words and {text.length} characters</p>
     <p style={{color:props.mode==='dark'?'white':'black'}}>{parseFloat(0.008*text.split(" ").length,2).toFixed(2)} Minutes read</p>
     </>
   )

@@ -1,6 +1,30 @@
+import { useEffect } from "react";
 import React from "react";
+import { Link } from "react-router-dom";
 
-export default function navbar(props) {
+export default function Navbar(props) {
+  useEffect(() => {
+    const navItems = document.querySelectorAll(".nav-item");
+
+    // Define a named function for the click event
+    function handleClick() {
+      navItems.forEach((li) => li.classList.remove("active"));
+      this.classList.add("active");
+    }
+
+    // Attach event listeners
+    navItems.forEach((item) => {
+      item.addEventListener("click", handleClick);
+    });
+
+    // Cleanup: Remove event listeners on unmount
+    return () => {
+      navItems.forEach((item) => {
+        item.removeEventListener("click", handleClick);
+      });
+    };
+  }, []);
+
   return (
     <>
     
@@ -23,14 +47,19 @@ export default function navbar(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 nav ">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">
+                <Link className="nav-link" aria-current="page" to="/" onClick>
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/">
+                <Link className="nav-link" to="/aboutUs">
                   About
-                </a>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" aria-current="page" to="/textUtils">
+                  Text Utils
+                </Link>
               </li>
             </ul>
            
